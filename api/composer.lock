@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0251884cf3eac4cf2b7e26acb218f09d",
+    "content-hash": "2d950cd8d8062a85430ae0245461a7a7",
     "packages": [
+        {
+            "name": "anti-pattern-inc/saasus-sdk-php",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/saasus-platform/saasus-sdk-php.git",
+                "reference": "37a5574fc1c3262c6e576923ccbd5f23b213dee7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/saasus-platform/saasus-sdk-php/zipball/37a5574fc1c3262c6e576923ccbd5f23b213dee7",
+                "reference": "37a5574fc1c3262c6e576923ccbd5f23b213dee7",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.4",
+                "guzzlehttp/promises": "^1.4.0",
+                "guzzlehttp/psr7": "^1.7.0|^2.0",
+                "laravel/framework": "^9.2",
+                "php": ">=8.0.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*",
+                "psr/cache": "^1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AntiPatternInc\\Saasus\\": "src/",
+                    "OpenAPI\\Client\\": "generated/openapi/types/php/lib/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "AntiPatternInc\\Saasus\\Test\\": "test/",
+                    "OpenAPI\\Client\\Test\\": "generated/openapi/types/php/test/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit test"
+                ],
+                "validate:openapi": [
+                    "openapi-generator-cli validate -i ../api/modules/auth/controller/authapi/authapi.yml"
+                ],
+                "codegen:openapi": [
+                    "openapi-generator-cli generate -g php -i ../api/modules/auth/controller/authapi/authapi.yml -o generated/openapi/types/php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Akihiro Yagasaki",
+                    "email": "y@anti-pattern.co.jp"
+                }
+            ],
+            "description": "SaaSus SDK for PHP",
+            "support": {
+                "source": "https://github.com/saasus-platform/saasus-sdk-php/tree/v0.1.0",
+                "issues": "https://github.com/saasus-platform/saasus-sdk-php/issues"
+            },
+            "time": "2022-07-30T13:07:56+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.3",
@@ -7796,5 +7859,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

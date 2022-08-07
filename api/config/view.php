@@ -15,6 +15,8 @@ return [
 
     'paths' => [
         resource_path('views'),
+        # ↓この行を追加：SaaSus SDKが提供するViewのディレクトリ
+        resource_path('../vendor/anti-pattern-inc/saasus-sdk-php/src/Laravel/Views'),
     ],
 
     /*
