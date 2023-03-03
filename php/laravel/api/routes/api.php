@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // 一時コードからIDトークンなどの認証情報を取得するコントローラを登録
 Route::get('/callback', 'AntiPatternInc\Saasus\Laravel\Controllers\CallbackApiController@index');
+Route::get('/token/refresh', 'AntiPatternInc\Saasus\Laravel\Controllers\TokenRefreshApiController@index');
 
 // SaaSus SDK標準のAuth Middlewareを利用する
 Route::middleware(\AntiPatternInc\Saasus\Laravel\Middleware\Auth::class)->group(function () {
