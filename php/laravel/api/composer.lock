@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ba99ffbbc5805b4cfc55d540334873b",
+    "content-hash": "bc38d09e8e62e83368836d27debae110",
     "packages": [
         {
             "name": "brick/math",
@@ -3659,16 +3659,16 @@
         },
         {
             "name": "saasus-platform/saasus-sdk-php",
-            "version": "v1.1.0",
+            "version": "dev-feature/api-request-error-handling",
             "source": {
                 "type": "git",
                 "url": "https://github.com/saasus-platform/saasus-sdk-php.git",
-                "reference": "c51bb0d0ad7806e310ef90293690002f7d583179"
+                "reference": "6d9173ec9ce5a236a9bd0fd4bc7493f1c794961c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saasus-platform/saasus-sdk-php/zipball/c51bb0d0ad7806e310ef90293690002f7d583179",
-                "reference": "c51bb0d0ad7806e310ef90293690002f7d583179",
+                "url": "https://api.github.com/repos/saasus-platform/saasus-sdk-php/zipball/6d9173ec9ce5a236a9bd0fd4bc7493f1c794961c",
+                "reference": "6d9173ec9ce5a236a9bd0fd4bc7493f1c794961c",
                 "shasum": ""
             },
             "require": {
@@ -3717,10 +3717,10 @@
             ],
             "description": "SaaSus SDK for PHP",
             "support": {
-                "source": "https://github.com/saasus-platform/saasus-sdk-php/tree/v1.1.0",
+                "source": "https://github.com/saasus-platform/saasus-sdk-php/tree/feature/api-request-error-handling",
                 "issues": "https://github.com/saasus-platform/saasus-sdk-php/issues"
             },
-            "time": "2023-02-12T06:23:39+00:00"
+            "time": "2023-03-04T14:54:20+00:00"
         },
         {
             "name": "symfony/console",
@@ -9026,7 +9026,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "saasus-platform/saasus-sdk-php": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
