@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ba99ffbbc5805b4cfc55d540334873b",
+    "content-hash": "a6612d538413c5973b0038d881fa5872",
     "packages": [
         {
             "name": "brick/math",
@@ -3659,16 +3659,16 @@
         },
         {
             "name": "saasus-platform/saasus-sdk-php",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/saasus-platform/saasus-sdk-php.git",
-                "reference": "c51bb0d0ad7806e310ef90293690002f7d583179"
+                "reference": "933914440ef68575a0dd842af83401494fad89c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saasus-platform/saasus-sdk-php/zipball/c51bb0d0ad7806e310ef90293690002f7d583179",
-                "reference": "c51bb0d0ad7806e310ef90293690002f7d583179",
+                "url": "https://api.github.com/repos/saasus-platform/saasus-sdk-php/zipball/933914440ef68575a0dd842af83401494fad89c3",
+                "reference": "933914440ef68575a0dd842af83401494fad89c3",
                 "shasum": ""
             },
             "require": {
@@ -3717,10 +3717,10 @@
             ],
             "description": "SaaSus SDK for PHP",
             "support": {
-                "source": "https://github.com/saasus-platform/saasus-sdk-php/tree/v1.1.0",
+                "source": "https://github.com/saasus-platform/saasus-sdk-php/tree/v1.2.0",
                 "issues": "https://github.com/saasus-platform/saasus-sdk-php/issues"
             },
-            "time": "2023-02-12T06:23:39+00:00"
+            "time": "2023-03-17T11:40:59+00:00"
         },
         {
             "name": "symfony/console",
