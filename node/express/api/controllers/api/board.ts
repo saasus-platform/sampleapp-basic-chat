@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
+import { UpdateMeteringUnitTimestampCountNowParam } from "saasus-sdk/dist/generated/Pricing";
 const db = require("../../models/index");
-import { TENANT_ID } from "../tenant";
+import { findUpperCountByMeteringUnitName, PricingClient } from "saasus-sdk";
 
 const getBoard = async (req: Request, res: Response) => {
   try {
     const messages = await db.Messages.findAll({
       where: {
-        tenant_id: TENANT_ID,
+        tenant_id: req.userInfo?.tenants[0].id,
       },
     });
     return res.json(messages);
@@ -20,13 +21,43 @@ const getBoard = async (req: Request, res: Response) => {
 
 const post = async (req: Request, res: Response) => {
   const mes = req.body.message;
-  const userName = "テストユーザー";
+  const tenantId = req.userInfo?.tenants[0].id || "";
+  const planId = req.userInfo?.tenants[0].plan_id || "";
+  const userName =
+    req.userInfo?.tenants[0].user_attribute.username || "テストユーザー";
   try {
-    await db.Messages.create({
-      tenant_id: TENANT_ID,
-      user_id: userName,
-      message: mes,
-    });
+    const pricingClient = new PricingClient();
+    const pricingPlan = await pricingClient.pricingPlansApi.getPricingPlan(
+      planId
+    );
+    const meteringUnitName = "comment_count";
+    const meteringUnitCountData =
+      await pricingClient.meteringApi.getMeteringUnitDateCountByTenantIdAndUnitNameToday(
+        tenantId,
+        meteringUnitName
+      );
+    const upper = findUpperCountByMeteringUnitName(
+      pricingPlan.data,
+      meteringUnitName
+    );
+    if (meteringUnitCountData.data.count < upper || upper === 0) {
+      await db.Messages.create({
+        tenant_id: tenantId,
+        user_id: userName,
+        message: mes,
+      });
+      let param: UpdateMeteringUnitTimestampCountNowParam = {
+        method: "add",
+        count: 1,
+      };
+      const res =
+        await pricingClient.meteringApi.updateMeteringUnitTimestampCountNow(
+          tenantId,
+          meteringUnitName,
+          param
+        );
+    }
+    return res.status(201).send();
   } catch (error) {
     console.error(error);
   }
