@@ -15,6 +15,7 @@ return [
 
     'paths' => [
         resource_path('views'),
+        resource_path('../vendor/saasus-platform/saasus-sdk-php/src/Laravel/Views'),
     ],
 
     /*
