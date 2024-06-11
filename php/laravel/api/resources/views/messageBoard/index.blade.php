@@ -13,7 +13,7 @@
             overflow: scroll;
         }
     </style>
-    <title>SampleApp SaaSus Message Board</title>
+    <title>Sampleapp SaaSus Message Board</title>
 </head>
 
 <body>
