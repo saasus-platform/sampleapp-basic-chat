@@ -21,27 +21,31 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name' => 'Blade User 1',
+                // 'tenant_id' => '1',
                 'email' => 'user@example.com',
                 'role_id' => Role::getBladeId(),
-                'password' => Hash::make('password'),
-            ],
-            [
-                'name' => 'React User 1',
-                'email' => 'user2@example.com',
-                'role_id' => Role::getReactId(),
-                'password' => Hash::make('password'),
+                'password' => Hash::make('SaaSTraining'),
             ],
             [
                 'name' => 'Blade User 2',
-                'email' => 'user3@example.com',
+                // 'tenant_id' => '1',
+                'email' => 'user2@example.com',
                 'role_id' => Role::getBladeId(),
-                'password' => Hash::make('password'),
+                'password' => Hash::make('SaaSTraining'),
             ],
             [
-                'name' => 'React User 2',
+                'name' => 'Blade User 3',
+                // 'tenant_id' => '2',
+                'email' => 'user3@example.com',
+                'role_id' => Role::getBladeId(),
+                'password' => Hash::make('SaaSTraining'),
+            ],
+            [
+                'name' => 'Blade User 4',
+                // 'tenant_id' => '2',
                 'email' => 'user4@example.com',
-                'role_id' => Role::getReactId(),
-                'password' => Hash::make('password'),
+                'role_id' => Role::getBladeId(),
+                'password' => Hash::make('SaaSTraining'),
             ],
         ]);
     }
