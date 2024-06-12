@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/board', 'App\Http\Controllers\MessageApiController@index');
-Route::post('/post', 'App\Http\Controllers\MessageApiController@post');
-Route::get('/plan', 'App\Http\Controllers\PlanApiController@index');
-Route::get('/tenant', 'App\Http\Controllers\TenantApiController@index');
+// 一時コードからIDトークンなどの認証情報を取得するコントローラを登録
+Route::get('/callback', 'AntiPatternInc\Saasus\Laravel\Controllers\CallbackApiController@index');
+
+// SaaSus SDK標準のAuth Middlewareを利用する
+Route::middleware(\AntiPatternInc\Saasus\Laravel\Middleware\Auth::class)->group(function () {
+  Route::get('/board', 'App\Http\Controllers\MessageApiController@index');
+  Route::post('/post', 'App\Http\Controllers\MessageApiController@post');
+  Route::get('/plan', 'App\Http\Controllers\PlanApiController@index');
+  Route::get('/tenant', 'App\Http\Controllers\TenantApiController@index');
+});
