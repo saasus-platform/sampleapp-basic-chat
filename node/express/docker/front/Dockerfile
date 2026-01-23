@@ -1,5 +1,3 @@
-FROM node:14
+FROM node:22
 
-RUN apt-get update
-
-CMD ["bash", "start.sh"]
+CMD ["sh", "start.sh"]
