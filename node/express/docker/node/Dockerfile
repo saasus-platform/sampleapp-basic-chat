@@ -1,3 +1,3 @@
 FROM node:22
 
-CMD ["sh", "start.sh"]
+CMD ["bash", "start.sh"]
