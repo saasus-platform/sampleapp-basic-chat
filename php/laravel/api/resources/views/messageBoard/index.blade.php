@@ -29,7 +29,7 @@
                 @foreach ($messages as $message)
                     <div class="mt-4">
                         <p>
-                            {{ $message->user->name }}
+                            {{ $message->user_id }}
                             <span class="text-xs text-gray-500">
                                 {{ $message->created_at->format('Y/m/d H:i') }}
                             </span>
